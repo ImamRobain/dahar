@@ -29,20 +29,17 @@ const getRestaurant = (data) => {
 };
 getRestaurant(DATA);
 
-const menu = document.querySelector("#menu");
-const hero = document.querySelector(".hero");
-const main = document.querySelector("main");
-const drawer = document.querySelector("#drawer");
+// Toggle class active Hamburger Menu
+const navbarNav = document.querySelector(".navbar-nav");
+// Hamburger di klik
+document.querySelector("#hamburger-menu").onclick = () => {
+  navbarNav.classList.toggle("active");
+};
 
-menu.addEventListener("click", function (event) {
-  drawer.classList.toggle("open");
-  event.stopPropagation();
-});
-
-hero.addEventListener("click", function () {
-  drawer.classList.remove("open");
-});
-
-main.addEventListener("click", function () {
-  drawer.classList.remove("open");
+//
+const hamburger = document.querySelector("#hamburger-menu");
+document.addEventListener("click", function (e) {
+  if (!hamburger.contains(e.target) && !navbarNav.contains(e.target)) {
+    navbarNav.classList.remove("active");
+  }
 });
